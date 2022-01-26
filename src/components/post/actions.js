@@ -89,5 +89,4 @@ Actions.propTypes={
 	totalLikes: PropTypes.number.isRequired,
 	likedPhoto: PropTypes.bool.isRequired,
 	handleFocus: PropTypes.func.isRequired
-}
-;
+};
