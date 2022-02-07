@@ -125,9 +125,16 @@ export default function SignUp(){
 						
 					</form>
 				</div>
-				<div className=""
+				<div className="flex justify-center items-center flex-col w-full bg-white p-4 rounded border-gray-primary">
+					<p className="text-sm">
+						have an account?{``}
+						<Link to={ROUTES.LOGIN} className="font-bold text-blue-medium">
+							Login
+						</Link>
+					</p>
+				</div>
 			</div>
 		</div>
-	)
+	);
 }
 
