@@ -11,7 +11,6 @@ export default function user({username,fullname}){
 			<div className="flex items-center justify-between col-span-1">
 				<img
 				className="rounded-full w-16 flex mr-3"
-				
 				src={`/images/avatars/${username}.jpg`}
 				alt=""
 				onError={(e)=>{
@@ -19,7 +18,16 @@ export default function user({username,fullname}){
 				}}
 				/>
 			</div>
+			<div className="col-span-3">
+				<p className="font-bold text-sm">{username}</p>
+				<p className="text-sm">{fullName}</p>
+			</div>
 
 		</Link>
-	)
+	);
 }
+
+user.propTypes ={
+	username: Proptypes.string,
+	fullName: PropTypes.string
+};
