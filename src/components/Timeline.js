@@ -9,13 +9,13 @@ export default function Timeline(){
 	const {user: {following}={}}=useContext(
 	
 
-	LoggeddInUserContext
+	LoggedInUserContext
 	);
 	const {photos}=usePhotos(user);
 
 	return(
 		<div className="container col-span-2">
-		{following===undefinied?(
+		{following===undefined?(
 			<Skeleton count={2}width={640} height={500} className="mb-5"/>
 
 		): following.lenght===0?(

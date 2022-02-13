@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import{DEFAULT_IMAGE_PATH} from '../../contants/path';
 
-export default function user({username,fullname}){
+export default function user({username,fullName}){
 	return !username || !fullName ? (
 		<skeleton count={1} height={61}/>
 	):(
@@ -28,6 +28,6 @@ export default function user({username,fullname}){
 }
 
 user.propTypes ={
-	username: Proptypes.string,
+	username: PropTypes.string,
 	fullName: PropTypes.string
 };

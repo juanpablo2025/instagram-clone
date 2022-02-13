@@ -10,7 +10,7 @@ export default function Comments({docId,comments: allComments,posted,commentInpu
 	const [commentsSlice,setCommentsSlice]= useState(3);
 
 
-	const showNextCommets = () => {
+	const showNextComments = () => {
 		setCommentsSlice(commentsSlice + 3);
 	};
 
@@ -23,16 +23,50 @@ export default function Comments({docId,comments: allComments,posted,commentInpu
 						<span className="mr-1 font-bold">{item.displayName}</span>
 						
 					</Link>
-					<span className = "mr-1 font-bold">{item.displayName}</span>
+					<span>{item.comment}</span>
 					
 				</p>
 			))}
+			{comments.lenght >=3 && commentsSlice < comments.length &&(
+				<button
+				className="text-sm text-gray-base mb-1 cursosr-pointer focus:outline-none"
+				type="button"
+				onClick={showNextComments}
+				onKeyDown={(event)=>{
+					if(event.key === 'Enter'){
+						showNextComments();
+					}
+				}}
+				>
+					View more Comments
+				</button>
+			)} 
+			<p className="text-gray-base uppercase text-xs mt-2">
+				{formatDistance(posted,new Date())} ago
+			</p>
+		
 		</div>
+
+		<AddComment
+		docId={docId}
+		comments={comments}
+		setComments={setComments}
+		commentInput={commentInput}
+		/>
+	
 
 
 	
 	
 	</>	
-	)
+	);
 
 }
+
+Comments.propTypes ={
+	docId: PropTypes.string.isRequired,
+	comments:PropTypes.array.isRequired,
+	posted: PropTypes.number.isRequired,
+	commentInput: PropTypes.object.isRequired
+
+};
